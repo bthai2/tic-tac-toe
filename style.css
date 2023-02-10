@@ -58,6 +58,7 @@ body {
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+	font-size: 32px;
 }
 
 .scoreboard {
@@ -73,7 +74,9 @@ body {
 
 .playerScores {
 	display: flex;
-	gap: 64px;
+	/* gap: 20vw; */
+	width: 100%;
+	justify-content: space-around;
 }
 
 .board
@@ -89,4 +92,5 @@ body {
 	outline: none;
 	border: none;
 	cursor: pointer;
+	background-color: #f0eef1;
 }
