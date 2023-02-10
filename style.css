@@ -69,7 +69,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
-}
+} 
 
 .playerScores {
 	display: flex;
@@ -80,8 +80,13 @@ body {
 {
 	width: 600px;
 	height: 600px;
-  	border: 6px solid black;
   	border-radius: 10px;
 	display: grid;
 	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.tile {
+	outline: none;
+	border: none;
+	cursor: pointer;
 }
