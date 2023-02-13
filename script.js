@@ -66,10 +66,48 @@ class Board {
   }
 };
 
-const p1Score = 0;
-const p2Score = 0;
+// eslint-disable-next-line require-jsdoc
+function updateScoreBoard(player1, player2) {
+  scoreText1.textContent = player1.score;
+  scoreText2.textContent = player2.score;
+}
+
+// eslint-disable-next-line require-jsdoc
+class Player {
+  // eslint-disable-next-line require-jsdoc
+  constructor(type) {
+    this._score = 0;
+    this._type = type;
+  }
+
+  // eslint-disable-next-line require-jsdoc
+  get type() {
+    return this._type;
+  }
+
+  // eslint-disable-next-line require-jsdoc
+  get score() {
+    return this._score;
+  }
+
+  // eslint-disable-next-line require-jsdoc
+  resetScore() {
+    this._score = 0;
+  }
+
+  // eslint-disable-next-line require-jsdoc
+  wins() {
+    this._score += 1;
+  }
+};
 
 const board = new Board();
+
+const p1 = new Player('X'); // can set X to user input in the future
+const p2 = new Player('O');
+p1.wins();
+updateScoreBoard(p1, p2);
+console.log(p1.score);
 
 for (const b of board.board) {
   boardDisplay.appendChild(b);
