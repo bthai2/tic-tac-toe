@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
-// const body = document.querySelector('body');
-const boardDisplay = document.querySelector('.board');
+const body = document.querySelector('body');
+let boardDisplay = document.querySelector('.board');
 const scoreText1 = document.querySelector('.p1ScoreText');
 const scoreText2 = document.querySelector('.p2ScoreText');
 
@@ -27,10 +27,61 @@ function toggleButtons() {
 }
 
 // eslint-disable-next-line require-jsdoc
+function toggleBoard() {
+  boardDisplay.style.visibility = 'hidden';
+}
+
+// eslint-disable-next-line require-jsdoc
+function switchBoardDisplay() {
+  body.removeChild(body.lastChild);
+
+  const newBoard = document.createElement('div');
+  newBoard.classList.add('board');
+  boardDisplay = document.querySelector('.board');
+
+  body.appendChild(newBoard);
+
+  board = new Board();
+}
+
+// eslint-disable-next-line require-jsdoc
+function addButtons() {
+  const div = document.createElement('div');
+  div.classList.add('gameOver');
+  div.textContent = 'Game Over';
+
+  const buttons = document.createElement('div');
+  buttons.classList.add('buttons');
+
+  const startOverBtn = document.createElement('button');
+  startOverBtn.classList.add('startOver');
+  startOverBtn.textContent = 'Start Over';
+  startOverBtn.addEventListener('click', () => {
+    p1.resetScore();
+    p2.resetScore();
+    updateScoreBoard(p1, p2);
+    switchBoardDisplay();
+  });
+  buttons.appendChild(startOverBtn);
+
+  const playAgainBtn = document.createElement('button');
+  playAgainBtn.classList.add('playAgain');
+  playAgainBtn.textContent = 'Play Again';
+  playAgainBtn.addEventListener('click', switchBoardDisplay);
+  buttons.appendChild(playAgainBtn);
+
+  div.appendChild(buttons);
+
+  body.removeChild(boardDisplay);
+  body.appendChild(div);
+}
+
+// eslint-disable-next-line require-jsdoc
 function gameOver() {
-//   board.tiles.forEach((b) => b.textContent = '');
+  board.tiles.forEach((b) => b.textContent = '');
   toggleButtons();
   //   toggleBoard();
+  addButtons();
   (p1Turn) ? p1.wins() : p2.wins();
   updateScoreBoard(p1, p2);
 }
@@ -65,6 +116,7 @@ class Board {
     this.tiles = [];
     this._boardThickness = 8;
     this.initBoard();
+    this.updateBoardDisplay();
   }
 
   // eslint-disable-next-line require-jsdoc
@@ -123,6 +175,14 @@ class Board {
           `border-right: ${this._boardThickness}px solid black`);
     }
   }
+
+  // eslint-disable-next-line require-jsdoc
+  updateBoardDisplay() {
+    boardDisplay = document.querySelector('.board');
+    for (const b of this.tiles) {
+      boardDisplay.appendChild(b);
+    }
+  }
 };
 
 // eslint-disable-next-line require-jsdoc
@@ -160,7 +220,7 @@ class Player {
   }
 };
 
-const board = new Board();
+let board = new Board();
 
 const p1 = new Player('X'); // can set X to user input in the future
 const p2 = new Player('O');
@@ -168,7 +228,3 @@ const p2 = new Player('O');
 // p1.wins();
 // updateScoreBoard(p1, p2);
 // console.log(p1.score);
-
-for (const b of board.tiles) {
-  boardDisplay.appendChild(b);
-}

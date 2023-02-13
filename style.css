@@ -114,3 +114,38 @@ body {
 	font-size: 96px;
 	font-weight: 600;
 }
+
+.gameOver {
+	font-size: 48px;
+	font-weight: bold;
+	margin: 10% 0;
+	height: 250px;
+	width: 800px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-around;
+	margin: 60px 0;
+	width: 100%;
+}
+
+.startOver, .playAgain {
+	padding: 32px;
+	font-size: 24px;
+	cursor: pointer;
+	border-radius: 16px;
+	box-shadow: 3px 4px 5px black;
+}
+
+.startOver:hover {
+	background-color: lightcoral;
+}
+
+.playAgain:hover {
+	background-color: lightgreen;
+}
