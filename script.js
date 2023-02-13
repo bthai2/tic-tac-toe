@@ -57,6 +57,7 @@ function addButtons() {
   startOverBtn.classList.add('startOver');
   startOverBtn.textContent = 'Start Over';
   startOverBtn.addEventListener('click', () => {
+    p1Turn = true;
     p1.resetScore();
     p2.resetScore();
     updateScoreBoard(p1, p2);
