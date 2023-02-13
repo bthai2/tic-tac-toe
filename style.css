@@ -70,7 +70,25 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
+	font-size: 40px;
 } 
+
+.score {
+	display: flex;
+}
+
+.p1ScoreText, .x {
+	color: blue;
+}
+
+.p2ScoreText, .o {
+	color: red;
+}
+
+.title {
+	font-size: 48px;
+	font-weight: 500;
+}
 
 .playerScores {
 	display: flex;
@@ -88,9 +106,11 @@ body {
 	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
-.tile {
+.tile, .x, .o {
 	outline: none;
 	border: none;
 	cursor: pointer;
 	background-color: #f0eef1;
+	font-size: 96px;
+	font-weight: 600;
 }
