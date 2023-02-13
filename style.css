@@ -77,11 +77,11 @@ body {
 	display: flex;
 }
 
-.p1ScoreText, .x {
+.p1ScoreText {
 	color: blue;
 }
 
-.p2ScoreText, .o {
+.p2ScoreText {
 	color: red;
 }
 
@@ -106,7 +106,7 @@ body {
 	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
-.tile, .x, .o {
+.tile {
 	outline: none;
 	border: none;
 	cursor: pointer;
