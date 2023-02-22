@@ -5,6 +5,7 @@ This is a simple Tic-Tac-Toe game that keeps track of the players' scores. The w
 - HTML
 - CSS
 - JavaScript classes
+- eslint
 # Challenges
 - Figuring out whether to hide elements or add/remove them using JavaScript
 # Future Improvements
